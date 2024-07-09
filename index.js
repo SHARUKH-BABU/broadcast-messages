@@ -14,7 +14,7 @@ app.get("/", (req, res) => {
   res.sendFile(__dirname + "/index.html");
 });
 
-server.listen(process.env.PORT, () => {
+server.listen(process.env.PORT || 7000, () => {
   console.log("Server running");
 });
 
