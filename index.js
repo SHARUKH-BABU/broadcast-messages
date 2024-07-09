@@ -5,13 +5,13 @@ const dotenv = require("dotenv").config();
 const app = express();
 const server = http.createServer(app);
 const cors = require("cors")
-const io = new Server(server);
-
-app.use(express.static("./public"));
-app.use(cors({
+const io = new Server(server, {
   origin:["https://broadcast-messages-blue.vercel.app/"],
   methods: ["GET", "POST"]
-}));
+});
+
+app.use(express.static("./public"));
+app.use(cors({origin:"*"}));
 
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/index.html");
