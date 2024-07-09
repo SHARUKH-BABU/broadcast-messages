@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WhatsApp Chat Area</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      /* Add your custom styles here */
+      body {
+        background-color: #f0f0f0;
+        font-family: sans-serif;
+      }
+
+      .chat-container {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+      }
+
+      .chat-header {
+        background-color: #128c7e;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.5rem 1rem;
+      }
+
+      .chat-messages {
+        flex-grow: 1;
+        padding: 1rem;
+        overflow-y: auto;
+      }
+
+      .message {
+        display: flex;
+        margin-bottom: 1rem;
+      }
+
+      .message-avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin-right: 0.5rem;
+      }
+
+      .message-bubble {
+        background-color: #ffffff;
+        padding: 0.5rem 1rem;
+        border-radius: 1rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      .message-time {
+        font-size: 0.8rem;
+        color: #666;
+        margin-left: 5px;
+      }
+
+      .message-input {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: #ffffff;
+        display: flex;
+        align-items: center;
+        padding: 0.5rem 1rem;
+        box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .message-input textarea {
+        flex-grow: 1;
+        resize: none;
+        border: none;
+        background-color: transparent;
+        padding: 0.5rem;
+        margin-right: 0.5rem;
+        font-family: inherit;
+        font-size: 1rem;
+        height: auto;
+      }
+
+      .message-input button {
+        background-color: #128c7e;
+        color: white;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+        cursor: pointer;
+      }
+      .my-msg {
+        justify-content: flex-end;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="chat-container">
+      <div class="chat-header">
+        <div>CHATIING</div>
+        <div class="online-count">Online Users: 0</div>
+      </div>
+      <div class="chat-messages"></div>
+      <div class="message-input">
+        <textarea id="input-msg" placeholder="Type a message..."></textarea>
+        <button id="sendBtn">Send</button>
+      </div>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
